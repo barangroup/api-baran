@@ -1,0 +1,4 @@
+/node_modules
+dist
+lib
+db_encrypt.js

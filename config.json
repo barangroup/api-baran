@@ -1,0 +1,8 @@
+{
+  "tokens": [
+    "7f35394fedfdf1a1915ae11915a3be51915a3be53"
+  ],
+  "mongodb": {
+    "url": "mongodb://localhost/baran"
+  }
+}
