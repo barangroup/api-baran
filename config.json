@@ -4,5 +4,6 @@
   ],
   "mongodb": {
     "url": "mongodb://localhost/baran"
-  }
+  },
+  "port": 3001
 }

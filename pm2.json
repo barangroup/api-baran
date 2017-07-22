@@ -1,0 +1,9 @@
+{
+  "apps": [{
+    "name": "api-baran",
+    "script": "./dist/bin/www",
+    "err_file": "api_baran_err.log",
+    "out_file": "api_baran_out.log",
+    "args": "['-x']"
+  }]
+}
