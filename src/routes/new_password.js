@@ -10,7 +10,6 @@ const router = express.Router();
 
 import db from 'db';
 
-
 router.post('/api/v1/new_password', async function(req, res, next) {
 
   if (!req.body.mobile || !req.body.password) {
@@ -22,33 +21,26 @@ router.post('/api/v1/new_password', async function(req, res, next) {
 
   let mobile = db_encrypt.encrypt(req.body.mobile);
 
-  console.log(mobile);
-
-  encrypt.hash(req.body.password, async(password) => {
-
-    console.log(password);
+  encrypt.hash(req.body.password, async(hash) => {
 
     let result = await db.users.update({
       mobile
     }, {
       $set: {
-        password: password
+        password: hash
       }
     });
 
+    if (result && result.ok && result.nModified && result.n) {
+      return res.json({
+        "new_password": true
+      });
+    }
 
-    // if (result) {
-    res.json(result);
+    return res.json({
+      "new_password": false
+    });
   });
-
-  // return res.json({
-  // exists: true
-  // });
-  // }
-
-  // return res.json({
-  // exists: false
-  // });
 });
 
 module.exports = router;
